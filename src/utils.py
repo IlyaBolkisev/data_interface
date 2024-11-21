@@ -162,7 +162,7 @@ class Dataloader:
 
     def load_audio_data(self, ):
         AUDIO_PATH = os.path.join(self.dir,
-                                  "features/audio_embeddings_feature_selection_{}.pkl".format(self.MODE.lower()))
+                                  "features/audio_embeddings_feature_selection_emotion.pkl")
         self.train_audio_emb, self.val_audio_emb, self.test_audio_emb = pickle.load(open(AUDIO_PATH, "rb"))
 
         self.get_dialogue_audio_embs()
@@ -179,8 +179,8 @@ class Dataloader:
 
     def load_bimodal_data(self, ):
 
-        TEXT_UNIMODAL = os.path.join(self.dir, "features/text_{}.pkl".format(self.MODE.lower()))
-        AUDIO_UNIMODAL = os.path.join(self.dir, "features/audio_{}.pkl".format(self.MODE.lower()))
+        TEXT_UNIMODAL = os.path.join(self.dir, "features/text_emotion.pkl")
+        AUDIO_UNIMODAL = os.path.join(self.dir, "features/audio_emotion.pkl")
 
         # Load features
         train_text_x, val_text_x, test_text_x = pickle.load(open(TEXT_UNIMODAL, "rb"), encoding='latin1')
